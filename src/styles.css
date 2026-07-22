@@ -1,0 +1,166 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Luxury Minimalism — Matte Black + Brushed Silver
+ * Inspired by Apple, Mercedes-Benz AMG, Linear, Vercel, Nothing.
+ */
+
+@theme inline {
+  --font-sans: "Satoshi", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Satoshi", "Geist", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-silver: var(--silver);
+  --color-silver-dim: var(--silver-dim);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Luxury palette */
+  --background: #090909;
+  --surface: #121212;
+  --card: #171717;
+  --card-foreground: #ffffff;
+  --popover: #121212;
+  --popover-foreground: #ffffff;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #090909;
+  --secondary: #121212;
+  --secondary-foreground: #ffffff;
+  --muted: #171717;
+  --muted-foreground: #b3b3b3;
+  --accent: #c0c0c0;
+  --accent-foreground: #090909;
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: #ffffff;
+  --border: #2b2b2b;
+  --input: #2b2b2b;
+  --ring: #c0c0c0;
+  --silver: #c0c0c0;
+  --silver-dim: #7a7a7a;
+
+  /* Gradients */
+  --gradient-silver: linear-gradient(180deg, #f4f4f4 0%, #c0c0c0 45%, #6e6e6e 100%);
+  --gradient-radial-silver: radial-gradient(
+    ellipse at center,
+    rgba(220, 220, 220, 0.28) 0%,
+    rgba(180, 180, 180, 0.12) 25%,
+    rgba(9, 9, 9, 0) 60%
+  );
+  --shadow-elegant: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+  --shadow-silver-glow: 0 0 120px rgba(192, 192, 192, 0.08);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  color-scheme: dark;
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  ::selection {
+    background: rgba(192, 192, 192, 0.25);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+    font-weight: 300;
+  }
+}
+
+@utility text-silver-gradient {
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility radial-silver {
+  background-image: var(--gradient-radial-silver);
+}
+
+@utility glass {
+  background: rgba(18, 18, 18, 0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@utility hairline {
+  position: relative;
+}
+@utility hairline-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Grid noise / texture for depth */
+@utility grain {
+  position: relative;
+}
+
+@keyframes silver-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.animate-soft-pulse { animation: soft-pulse 3.5s ease-in-out infinite; }
