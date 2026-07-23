@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -44,12 +45,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-light tracking-tight text-foreground">
-          Something didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Try refreshing or head back home.
-        </p>
+        <h1 className="text-xl font-light tracking-tight text-foreground">Something didn't load</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Try refreshing or head back home.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -81,8 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Yash Gaikwad — AI & Analytics Student" },
       {
         property: "og:description",
-        content:
-          "Selected AI-powered applications and full-stack systems by Yash Gaikwad.",
+        content: "Selected AI-powered applications and full-stack systems by Yash Gaikwad.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -112,6 +108,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>
