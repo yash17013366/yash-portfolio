@@ -25,10 +25,13 @@ function projectGalleryManifest(): Plugin {
             .filter((entry) => entry.isFile() && /\.(avif|gif|jpe?g|png|webp)$/i.test(entry.name))
             .map((entry) => entry.name)
             .sort((a, b) => {
-              const rank = (name: string) => /^cover\./i.test(name) ? 0 : 1;
+              const rank = (name: string) => (/^cover\./i.test(name) ? 0 : 1);
               return rank(a) - rank(b) || a.localeCompare(b, undefined, { numeric: true });
             })
-            .map((file) => `/${relative(join(process.cwd(), "public"), join(folderPath, file)).split(sep).join("/")}`);
+            .map(
+              (file) =>
+                `/${relative(join(process.cwd(), "public"), join(folderPath, file)).split(sep).join("/")}`,
+            );
           return [folder.name, images];
         }),
     );
@@ -36,8 +39,14 @@ function projectGalleryManifest(): Plugin {
 
   return {
     name: "project-gallery-manifest",
-    resolveId(id) { return id === galleryModuleId ? resolvedGalleryModuleId : undefined; },
-    load(id) { return id === resolvedGalleryModuleId ? `export const projectImageManifest = ${JSON.stringify(getManifest())};` : undefined; },
+    resolveId(id) {
+      return id === galleryModuleId ? resolvedGalleryModuleId : undefined;
+    },
+    load(id) {
+      return id === resolvedGalleryModuleId
+        ? `export const projectImageManifest = ${JSON.stringify(getManifest())};`
+        : undefined;
+    },
     configureServer(server) {
       server.watcher.add(projectsDirectory);
       server.watcher.on("all", (_event, file) => {

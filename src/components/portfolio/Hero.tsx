@@ -27,12 +27,12 @@ export function Hero() {
           />
           <motion.div
             animate={{ y: [0, -6, 0] }}
-          whileHover={{
-            y: -8,
-            rotate: -0.25,
-            scale: 1.025,
-            transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-          }}
+            whileHover={{
+              y: -8,
+              rotate: -0.25,
+              scale: 1.025,
+              transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+            }}
             transition={{
               y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
               default: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },

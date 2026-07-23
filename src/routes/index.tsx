@@ -25,8 +25,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Yash Gaikwad — AI & Analytics Student" },
       {
         property: "og:description",
-        content:
-          "Selected AI-powered applications and full-stack systems by Yash Gaikwad.",
+        content: "Selected AI-powered applications and full-stack systems by Yash Gaikwad.",
       },
     ],
   }),
