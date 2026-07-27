@@ -1,4 +1,4 @@
-export type ProjectSection = "overview" | "problem" | "solution" | "features" | "tech" | "github";
+export type ProjectSection = "overview" | "features" | "tech" | "github";
 
 export interface Project {
   id: string;
@@ -6,8 +6,6 @@ export interface Project {
   name: string;
   tagline: string;
   overview: string;
-  problem: string;
-  solution: string;
   features: string[];
   tech: string[];
   github: string;
@@ -22,11 +20,7 @@ export const projects: Project[] = [
     name: "UNCLUTTERED",
     tagline: "Award-winning collaborative project management platform.",
     overview:
-      "A modern full-stack task management platform built to simplify project collaboration through Kanban workflows, role-based access control, issue tracking, and real-time task organization.",
-    problem:
-      "Growing teams often rely on fragmented tools, making task ownership, collaboration, and project visibility difficult to manage efficiently.",
-    solution:
-      "Developed a scalable React and Express application with secure authentication, structured workflows, and collaborative features that streamline project management across teams.",
+      "A modern full-stack task management platform built to simplify project collaboration through Kanban workflows, role-based access control, issue tracking, and real-time task organization. Growing teams often struggle with fragmented tools — Uncluttered brings together structured workflows, secure authentication, and collaborative features to streamline project management across teams.",
     features: [
       "Kanban boards with intuitive drag-and-drop workflows",
       "Role-Based Access Control (RBAC) for secure collaboration",
@@ -44,11 +38,7 @@ export const projects: Project[] = [
     name: "HotelEase",
     tagline: "Modern hotel management made effortless.",
     overview:
-      "A full-stack hotel management system that digitizes room bookings, guest records, billing, and daily hotel operations through a clean and intuitive interface.",
-    problem:
-      "Manual hotel management processes often lead to booking conflicts, inefficient record keeping, and operational delays.",
-    solution:
-      "Built a responsive full-stack platform that centralizes reservations, billing, guest management, and room availability using modern web technologies.",
+      "A full-stack hotel management system that digitizes room bookings, guest records, billing, and daily hotel operations through a clean and intuitive interface. Manual hotel processes lead to booking conflicts and delays — HotelEase centralizes reservations, billing, and guest management into one responsive platform.",
     features: [
       "Room booking and reservation management",
       "Guest records and billing workflows",
@@ -67,11 +57,7 @@ export const projects: Project[] = [
     name: "AI-Powered LLM Chatbot",
     tagline: "Intelligent conversations powered by modern LLMs.",
     overview:
-      "An AI-powered chatbot built with FastAPI, React, and Google Gemini 2.5 Flash that delivers secure, contextual, multi-turn conversations with persistent chat history and user authentication.",
-    problem:
-      "Traditional chatbots struggle to maintain conversational context, provide secure user-specific sessions, and scale efficiently for real-world applications.",
-    solution:
-      "Designed a modular full-stack architecture featuring JWT authentication, persistent MongoDB conversation history, scalable REST APIs, and Gemini-powered responses for accurate contextual interactions.",
+      "An AI-powered chatbot built with FastAPI, React, and Google Gemini 2.5 Flash that delivers secure, contextual, multi-turn conversations with persistent chat history and user authentication. Unlike traditional chatbots that lose context, this modular architecture features JWT authentication, persistent MongoDB history, and Gemini-powered responses for accurate, scalable interactions.",
     features: [
       "Multi-turn contextual conversations with Gemini 2.5 Flash",
       "Secure JWT authentication with user-specific chat sessions",
@@ -89,11 +75,7 @@ export const projects: Project[] = [
     name: "BMW Global Sales Dashboard",
     tagline: "Transforming global sales data into actionable insights.",
     overview:
-      "An interactive business intelligence dashboard that visualizes BMW's global sales performance, regional trends, revenue distribution, and key business metrics to support data-driven decision-making.",
-    problem:
-      "Large sales datasets make it difficult to quickly identify regional performance, revenue trends, and business opportunities through traditional reporting methods.",
-    solution:
-      "Designed an interactive dashboard with dynamic filters, KPI tracking, and rich visualizations that enable stakeholders to explore sales performance and derive actionable insights in real time.",
+      "An interactive business intelligence dashboard that visualizes BMW's global sales performance, regional trends, revenue distribution, and key business metrics. Large datasets are transformed into dynamic filters, KPI tracking, and rich visualizations — enabling stakeholders to derive actionable insights in real time.",
     features: [
       "Interactive KPI dashboard with dynamic filtering",
       "Regional and country-wise sales analysis",

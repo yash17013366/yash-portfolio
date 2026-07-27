@@ -6,8 +6,6 @@ import { projectImageManifest } from "virtual:project-gallery-manifest";
 
 const sections: { id: ProjectSection; label: string }[] = [
   { id: "overview", label: "Overview" },
-  { id: "problem", label: "Problem" },
-  { id: "solution", label: "Solution" },
   { id: "features", label: "Features" },
   { id: "tech", label: "Tech Stack" },
   { id: "github", label: "GitHub" },
@@ -38,22 +36,6 @@ function BrowserFrame({
       body: (
         <p className="text-[13px] font-light leading-relaxed text-muted-foreground">
           {project.overview}
-        </p>
-      ),
-    },
-    problem: {
-      title: "The Problem",
-      body: (
-        <p className="text-[13px] font-light leading-relaxed text-muted-foreground">
-          {project.problem}
-        </p>
-      ),
-    },
-    solution: {
-      title: "The Solution",
-      body: (
-        <p className="text-[13px] font-light leading-relaxed text-muted-foreground">
-          {project.solution}
         </p>
       ),
     },
@@ -227,7 +209,7 @@ export function ProjectShowcase({ project }: { project: Project }) {
     <section
       ref={containerRef}
       id={project.id}
-      className="relative border-t border-border/60 py-32 md:py-48"
+      className="relative border-t border-border/60 py-24 md:py-36"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 md:grid-cols-[1.1fr_1fr] md:px-12 lg:gap-24">
         {/* Left: sticky screenshot */}
@@ -286,7 +268,7 @@ export function ProjectShowcase({ project }: { project: Project }) {
             </ul>
           </div>
 
-          <div className="min-w-0 space-y-28 md:space-y-36">
+          <div className="min-w-0 space-y-20 md:space-y-28">
             <div
               ref={(el) => {
                 sectionRefs.current.overview = el;
@@ -316,43 +298,11 @@ export function ProjectShowcase({ project }: { project: Project }) {
 
             <div
               ref={(el) => {
-                sectionRefs.current.problem = el;
-              }}
-              data-section="problem"
-              id={`${project.id}-problem`}
-              className="min-h-[34vh] scroll-mt-36"
-            >
-              <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
-                The Problem
-              </p>
-              <p className="mt-6 max-w-xl text-xl font-light leading-relaxed text-muted-foreground md:text-2xl">
-                {project.problem}
-              </p>
-            </div>
-
-            <div
-              ref={(el) => {
-                sectionRefs.current.solution = el;
-              }}
-              data-section="solution"
-              id={`${project.id}-solution`}
-              className="min-h-[34vh] scroll-mt-36"
-            >
-              <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
-                The Solution
-              </p>
-              <p className="mt-6 max-w-xl text-xl font-light leading-relaxed text-foreground md:text-2xl">
-                {project.solution}
-              </p>
-            </div>
-
-            <div
-              ref={(el) => {
                 sectionRefs.current.features = el;
               }}
               data-section="features"
               id={`${project.id}-features`}
-              className="min-h-[34vh] scroll-mt-36"
+              className="min-h-[26vh] scroll-mt-36"
             >
               <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
                 Features
@@ -376,7 +326,7 @@ export function ProjectShowcase({ project }: { project: Project }) {
               }}
               data-section="tech"
               id={`${project.id}-tech`}
-              className="min-h-[34vh] scroll-mt-36"
+              className="min-h-[26vh] scroll-mt-36"
             >
               <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
                 Technology
@@ -399,7 +349,7 @@ export function ProjectShowcase({ project }: { project: Project }) {
               }}
               data-section="github"
               id={`${project.id}-github`}
-              className="min-h-[34vh] scroll-mt-36"
+              className="min-h-[26vh] scroll-mt-36"
             >
               <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
                 Repository
