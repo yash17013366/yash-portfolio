@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Github } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
 import type { Project, ProjectSection } from "./projects.data";
 import { projectImageManifest } from "virtual:project-gallery-manifest";
 
@@ -298,6 +298,17 @@ export function ProjectShowcase({ project }: { project: Project }) {
               <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
                 Overview
               </p>
+              {project.liveDemo && (
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-silver/30 bg-gradient-to-r from-silver/10 to-silver/5 px-5 py-2.5 text-xs font-light tracking-wider text-foreground/90 shadow-sm backdrop-blur transition-all duration-300 hover:border-silver/60 hover:from-silver/20 hover:to-silver/10 hover:shadow-md hover:text-foreground"
+                >
+                  <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                  Click for Live Demo
+                </a>
+              )}
               <p className="mt-6 max-w-xl text-xl font-light leading-relaxed text-foreground md:text-2xl">
                 {project.overview}
               </p>

@@ -12,6 +12,7 @@ export interface Project {
   tech: string[];
   github: string;
   imageFolder: string;
+  liveDemo?: string;
 }
 
 export const projects: Project[] = [
@@ -57,6 +58,7 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "MongoDB", "REST APIs"],
     github: "https://github.com/yash17013366/HotelEase",
     imageFolder: "hotelease",
+    liveDemo: "https://team-hotel-ease.vercel.app/",
   },
 
   {
